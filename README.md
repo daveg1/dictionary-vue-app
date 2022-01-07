@@ -1,4 +1,14 @@
 # Dictionary App
+Uses the free dictionary api (https://dictionaryapi.dev/) to search and display word results.
+
+## Intended features
+* Word synonyms
+* Add words to favourites
+* Word dictation
+* No page refresh between searches
+
+## Todo
+* Use vuex for state management
 
 ## Usage
 ### Install dependencies
