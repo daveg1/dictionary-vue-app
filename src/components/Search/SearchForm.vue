@@ -19,6 +19,8 @@
     v-model="query"
     :class="query ? 'has-value' :''"
     >
+
+    <button class="SearchForm__Clear" type="reset" :class="!query ? 'hide' : ''">✖</button>
 </form>
 
 </template>
@@ -55,8 +57,8 @@ export default {
 </script>
 
 <style>
-
 .SearchForm {
+  display: inline-block;
   position: relative;
 }
 
@@ -66,9 +68,10 @@ export default {
   border-radius: 40px;
   color: #ccc;
   font-weight: 600;
+  line-height: 1;
   outline: 0;
   padding-block: 0.5rem;
-  padding-inline: 2.3rem 0.5rem;
+  padding-inline: 2.3rem 1.7rem;
   transition: color 150ms ease-in, width 200ms ease-out;
   width: 10rem;
 }
@@ -96,4 +99,27 @@ export default {
   font-size: 1.5rem;
 }
 
+.SearchForm__Clear {
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.5;
+  padding: 0;
+  position: absolute;
+  right: 0.7rem;
+  text-align: center;
+  top: 50%;
+  transform: translateY(calc(-50% - 0.05rem));
+  transition: opacity 200ms;
+}
+
+.SearchForm__Clear.hide {
+  opacity: 0;
+}
+
+.SearchForm__Clear:hover {
+  opacity: 1;
+}
 </style>

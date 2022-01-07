@@ -51,17 +51,21 @@ export default {
 }
 
 .Result__Header {
-  align-items: baseline;
+  align-items: center;
   display: flex;
 }
 
 .Result__Header sup {
   color: var(--color-text-alt);
-  font-size: 60%;
+  font-size: 0.6em;
   padding-inline-start: 0.2rem;
 }
 
 .Result__Phonetic {
+  background-color: var(--color-primary);
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  padding-inline: 0.3rem;
   margin-inline-start: 0.7rem;
 }
 
