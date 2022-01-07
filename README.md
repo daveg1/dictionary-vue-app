@@ -11,22 +11,9 @@ Uses the free dictionary api (https://dictionaryapi.dev/) to search and display 
 * Use vuex for state management
 
 ## Usage
-### Install dependencies
-```
-npm i
-```
-
-### Dev server
-Compiles and hot-reloads
-```
-npm run serve
-```
-
-### Build
-Compiles and minifies for production
-```
-npm run build
-```
+1. Install dependencies: `npm i`
+2. Dev server (compiles and hot-reloads): `npm run serve`
+3. Build (compiles and minifies for production): `npm run build`
 
 ### Vue CLI config
 See [Configuration Reference](https://cli.vuejs.org/config/).
