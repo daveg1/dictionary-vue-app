@@ -8,7 +8,9 @@ Uses the free dictionary api (https://dictionaryapi.dev/) to search and display 
 * No page refresh between searches
 
 ### Todo
-* Use vuex for state management
+* ~~use vuex for search~~
+* use vuex for favourite words
+* fix search clearing
 
 ## Usage
 1. Install dependencies: `npm i`
