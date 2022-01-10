@@ -1,6 +1,13 @@
 <template>
 <div v-show="hasSearched" class="Results">
-  <ResultList v-if="hasResults" :results="results" />
+  <div v-if="hasResults" class="Results__List">
+    <Result
+      v-for="(result,index) of results"
+      :key="index"
+      :count="index+1"
+      :result="result"
+    />
+  </div>
 
   <div v-else class="NoResults">
     <h2 class="NoResults__Title">No results for "{{query}}"</h2>
@@ -11,12 +18,12 @@
 </template>
 
 <script>
-import ResultList from './ResultsList/ResultList.vue'
+import Result from './Result/Result.vue'
 
 export default {
   name: 'TheResults',
 
-  components: { ResultList },
+  components: { Result },
 
   computed: {
     results() {
