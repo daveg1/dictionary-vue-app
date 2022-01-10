@@ -8,7 +8,7 @@
   <main>
     <section class="MeaningsList" v-for="(meaning,idx) of result.meanings" :key="idx">
       <h3>{{ meaning.partOfSpeech }}</h3>
-      <ol>
+      <ol class="Entries">
         <li class="Entry" v-for="(entry,idx) of meaning.definitions" :key="idx">
           <p class="Entry__Definition">{{ entry.definition }}</p>
           <p class="Entry__Example" v-show="entry.example">"{{ entry.example }}"</p>
@@ -39,7 +39,7 @@ export default {
 
   methods: {
     handleClickSynonym(word) {
-      console.log(word, this.$refs)
+      this.$store.dispatch('search/search', word)
     }
   }
 }
@@ -48,11 +48,6 @@ export default {
 <style>
 .Result {
   margin-block-end: 2rem;
-}
-
-.Result__Header {
-  align-items: center;
-  display: flex;
 }
 
 .Result__Header sup {
@@ -64,17 +59,18 @@ export default {
 .Result__Phonetic {
   background-color: var(--color-primary);
   border-radius: 3px;
+  display: inline-block;
   letter-spacing: 0.3px;
+  margin-block: 1rem;
   padding-inline: 0.3rem;
-  margin-inline-start: 0.7rem;
 }
 
 .MeaningsList {
   margin-block-end: 1rem;
 }
 
-.Entry:not(:last-child) {
-  margin-block-end: 0.5rem;
+.Entry {
+  margin-top: 0.5rem;
 }
 
 .Entry__Example {
@@ -83,9 +79,11 @@ export default {
 }
 
 .Entry__Synonyms {
+  align-items: baseline;
   display: flex;
   flex-wrap: wrap;
   margin: -0.25rem;
+  margin-top: 0.5rem;
 }
 
 .Entry__Synonym {

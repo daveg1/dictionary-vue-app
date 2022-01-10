@@ -5,6 +5,7 @@
   autocomplete="off"
   spellcheck="off"
   @submit.prevent="handleSubmit"
+  @reset="handleReset"
 >
   <button class="SearchForm__Button">
     <span class="SearchForm__Icon material-icons">search</span>
@@ -31,7 +32,7 @@ export default {
 
   data() {
     return {
-      query: '',
+      query: ''
     }
   },
 
@@ -52,7 +53,7 @@ export default {
 
       this.$emit('post', match.join(''))
     }
-  }
+  },
 }
 </script>
 

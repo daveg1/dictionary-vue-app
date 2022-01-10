@@ -7,19 +7,14 @@
 
 <script>
 import SearchForm from './SearchForm.vue'
-import search from './search'
 
 export default {
   name: 'TheSearchBox',
   components: { SearchForm },
 
   methods: {
-    async handlePost(query) {
-      const results = await search(query)
-      this.$emit('search', {
-        word: query,
-        results
-      })
+    handlePost(query) {
+      this.$store.dispatch('search/search', query)
     },
   }
 }

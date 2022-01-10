@@ -3,7 +3,7 @@
   <ResultList v-if="hasResults" :results="results" />
 
   <div v-else class="NoResults">
-    <h2 class="NoResults__Title">No results for "{{word}}"</h2>
+    <h2 class="NoResults__Title">No results for "{{query}}"</h2>
     <p>Sorry, no results found. You may have to check your spelling.</p>
     <p>Otherwise, the word is not present in dictionary.</p>
   </div>
@@ -18,16 +18,22 @@ export default {
 
   components: { ResultList },
 
-  props: ['word', 'results'],
-
   computed: {
-    hasSearched() {
-      return !!this.word
+    results() {
+      return this.$store.getters['search/results']
+    },
+
+    query() {
+      return this.$store.getters['search/query']
     },
 
     hasResults() {
-      return !!this.results.length
+      return this.results.length > 0
     },
+
+    hasSearched() {
+      return this.query !== ''
+    }
   }
 }
 </script>
